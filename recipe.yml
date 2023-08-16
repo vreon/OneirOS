@@ -13,12 +13,15 @@ rpm:
   - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
   install:
   - alacritty
+  - gnome-keyring
   - htop
   - hyprland
   - hyprpaper
   - libadwaita
   - neovim
+  - nerd-fonts
   - pavucontrol
+  - polkit-gnome
   - tailscale
   - thunar
   - thunar-archive-plugin
@@ -26,7 +29,6 @@ rpm:
   - waybar-hyprland
   - wofi
   - xdg-desktop-portal-hyprland
-  - xfce-polkit
   - zsh
   remove:
   - firefox
