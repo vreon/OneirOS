@@ -14,7 +14,6 @@ rpm:
   install:
   - adobe-source-code-pro-fonts
   - alacritty
-  - cascadiacode-nerd-fonts
   - gnome-keyring
   - google-droid-sans-mono-fonts
   - google-go-mono-fonts
@@ -33,8 +32,6 @@ rpm:
   - thunar
   - thunar-archive-plugin
   - thunar-volman
-  - ubuntu-nerd-fonts
-  - ubuntumono-nerd-fonts
   - waybar-hyprland
   - wofi
   - xdg-desktop-portal-hyprland
