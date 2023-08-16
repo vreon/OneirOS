@@ -13,7 +13,6 @@ rpm:
   - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
   install:
   - alacritty
-  - chezmoi
   - htop
   - hyprland
   - hyprpaper
