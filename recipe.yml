@@ -14,6 +14,7 @@ rpm:
   install:
   - adobe-source-code-pro-fonts
   - alacritty
+  - brightnessctl
   - gnome-keyring
   - google-droid-sans-mono-fonts
   - google-go-mono-fonts
