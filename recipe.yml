@@ -17,6 +17,7 @@ rpm:
   - brightnessctl
   - gnome-keyring
   - google-droid-sans-mono-fonts
+  - google-noto-sans-fonts
   - google-go-mono-fonts
   - htop
   - hyprland
