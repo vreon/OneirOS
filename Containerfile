@@ -53,5 +53,6 @@ COPY scripts /tmp/scripts
 RUN rpm-ostree install /tmp/ublue-os-wallpapers-0.1-1.fc38.noarch.rpm && \
         chmod +x /tmp/scripts/build.sh && \
         /tmp/scripts/build.sh && \
+        sed -i '/^PRETTY_NAME/s/Thirty Eight/OneirOS/' /usr/lib/os-release && \
         rm -rf /tmp/* /var/* && \
         ostree container commit
