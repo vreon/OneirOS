@@ -28,6 +28,7 @@ rpm:
   - mozilla-fira-mono-fonts
   - neovim
   - pavucontrol
+  - playerctl
   - polkit-gnome
   - powerline-fonts
   - tailscale
