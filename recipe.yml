@@ -1,7 +1,7 @@
 name: oneiros
 base-image: ghcr.io/ublue-os/base-main
 fedora-version: 38
-description: A custom uBlue image. Make your own! https://universal-blue.org/tinker/make-your-own/
+description: The OS of my dreams
 scripts:
   pre:
   - autorun.sh
