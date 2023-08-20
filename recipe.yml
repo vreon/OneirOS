@@ -14,6 +14,7 @@ rpm:
   install:
   - alacritty
   - brightnessctl
+  - fastfetch
   - gnome-keyring
   - google-noto-sans-fonts
   - htop
