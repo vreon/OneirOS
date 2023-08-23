@@ -18,10 +18,12 @@ rpm:
   - brightnessctl
   - fastfetch
   - gnome-keyring
+  - google-noto-sans-fonts
   - grim
   - htop
   - hyprland
   - hyprpaper
+  - jetbrains-mono-fonts-all
   - libadwaita
   - neovim
   - nerd-fonts
