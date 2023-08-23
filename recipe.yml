@@ -18,6 +18,7 @@ rpm:
   - fastfetch
   - gnome-keyring
   - google-noto-sans-fonts
+  - grim
   - htop
   - hyprland
   - hyprpaper
@@ -28,6 +29,8 @@ rpm:
   - playerctl
   - polkit-gnome
   - powerline-fonts
+  - slurp
+  - swappy
   - SwayNotificationCenter
   - tailscale
   - thunar
