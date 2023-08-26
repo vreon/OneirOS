@@ -9,9 +9,10 @@ scripts:
   - autorun.sh
 rpm:
   repos:
+  - https://copr.fedorainfracloud.org/coprs/alebastr/sway-extras/repo/fedora-%FEDORA_VERSION%/alebastr-sway-extras-fedora-%FEDORA_VERSION%.repo
+  - https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-%FEDORA_VERSION%/che-nerd-fonts-fedora-%FEDORA_VERSION%.repo
   - https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-%FEDORA_VERSION%/erikreider-SwayNotificationCenter-fedora-%FEDORA_VERSION%.repo
   - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%FEDORA_VERSION%/solopasha-hyprland-fedora-%FEDORA_VERSION%.repo
-  - https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-%FEDORA_VERSION%/che-nerd-fonts-fedora-%FEDORA_VERSION%.repo
   - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
   install:
   - alacritty
@@ -20,6 +21,8 @@ rpm:
   - fastfetch
   - gnome-keyring
   - google-noto-sans-fonts
+  - greetd
+  - greetd-gtkgreet
   - grim
   - htop
   - hyprland
