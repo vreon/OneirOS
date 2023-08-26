@@ -15,6 +15,7 @@ rpm:
   - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
   install:
   - alacritty
+  - blueman
   - brightnessctl
   - fastfetch
   - gnome-keyring
@@ -27,6 +28,7 @@ rpm:
   - libadwaita
   - neovim
   - nerd-fonts
+  - network-manager-applet
   - pavucontrol
   - playerctl
   - polkit-gnome
