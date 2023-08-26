@@ -19,6 +19,7 @@ rpm:
   - brightnessctl
   - fastfetch
   - gnome-keyring
+  - gnome-settings-daemon
   - google-noto-sans-fonts
   - grim
   - htop
