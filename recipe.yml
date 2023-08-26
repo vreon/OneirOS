@@ -20,7 +20,6 @@ rpm:
   - fastfetch
   - gnome-keyring
   - google-noto-sans-fonts
-  - greetd
   - grim
   - htop
   - hyprland
@@ -34,6 +33,7 @@ rpm:
   - playerctl
   - polkit-gnome
   - powerline-fonts
+  - sddm
   - slurp
   - swappy
   - SwayNotificationCenter
@@ -41,7 +41,6 @@ rpm:
   - thunar
   - thunar-archive-plugin
   - thunar-volman
-  - tuigreet
   - waybar-hyprland
   - wofi
   - xdg-desktop-portal-hyprland
