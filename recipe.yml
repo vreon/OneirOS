@@ -4,57 +4,57 @@ fedora-version: 38
 description: The OS of my dreams
 scripts:
   pre:
-  - autorun.sh
+    - autorun.sh
   post:
-  - autorun.sh
+    - autorun.sh
 rpm:
   repos:
-  - https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-%FEDORA_VERSION%/che-nerd-fonts-fedora-%FEDORA_VERSION%.repo
-  - https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-%FEDORA_VERSION%/erikreider-SwayNotificationCenter-fedora-%FEDORA_VERSION%.repo
-  - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%FEDORA_VERSION%/solopasha-hyprland-fedora-%FEDORA_VERSION%.repo
-  - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+    - https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-%FEDORA_VERSION%/che-nerd-fonts-fedora-%FEDORA_VERSION%.repo
+    - https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-%FEDORA_VERSION%/erikreider-SwayNotificationCenter-fedora-%FEDORA_VERSION%.repo
+    - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%FEDORA_VERSION%/solopasha-hyprland-fedora-%FEDORA_VERSION%.repo
+    - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
   install:
-  - alacritty
-  - blueman
-  - brightnessctl
-  - fastfetch
-  - gnome-keyring
-  - gnome-settings-daemon
-  - google-noto-sans-fonts
-  - grim
-  - htop
-  - hyprland
-  - hyprpaper
-  - jetbrains-mono-fonts-all
-  - libadwaita
-  - neovim
-  - nerd-fonts
-  - network-manager-applet
-  - pavucontrol
-  - playerctl
-  - polkit-gnome
-  - powerline-fonts
-  - sddm
-  - slurp
-  - swappy
-  - SwayNotificationCenter
-  - tailscale
-  - thunar
-  - thunar-archive-plugin
-  - thunar-volman
-  - waybar-hyprland
-  - wofi
-  - xdg-desktop-portal-hyprland
-  - zsh
+    - alacritty
+    - blueman
+    - brightnessctl
+    - fastfetch
+    - gnome-keyring
+    - gnome-settings-daemon
+    - google-noto-sans-fonts
+    - grim
+    - htop
+    - hyprland
+    - hyprpaper
+    - jetbrains-mono-fonts-all
+    - libadwaita
+    - neovim
+    - nerd-fonts
+    - network-manager-applet
+    - pavucontrol
+    - playerctl
+    - polkit-gnome
+    - powerline-fonts
+    - sddm
+    - slurp
+    - swappy
+    - SwayNotificationCenter
+    - tailscale
+    - thunar
+    - thunar-archive-plugin
+    - thunar-volman
+    - waybar-hyprland
+    - wofi
+    - xdg-desktop-portal-hyprland
+    - zsh
   remove:
-  - firefox
-  - firefox-langpacks
+    - firefox
+    - firefox-langpacks
 firstboot:
   yafti: false
   flatpaks:
-  - com.discordapp.Discord
-  - com.github.tchx84.Flatseal
-  - com.github.zocker_160.SyncThingy
-  - com.google.Chrome
-  - com.obsproject.Studio
-  - md.obsidian.Obsidian
+    - com.discordapp.Discord
+    - com.github.tchx84.Flatseal
+    - com.github.zocker_160.SyncThingy
+    - com.google.Chrome
+    - com.obsproject.Studio
+    - md.obsidian.Obsidian
