@@ -42,7 +42,7 @@ rpm:
     - thunar
     - thunar-archive-plugin
     - thunar-volman
-    - waybar-hyprland
+    - waybar
     - wofi
     - xdg-desktop-portal-hyprland
     - zsh
