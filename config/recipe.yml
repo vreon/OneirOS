@@ -1,0 +1,96 @@
+# image will be published to ghcr.io/<user>/<name>
+name: oneiros
+# description will be included in the image's metadata
+description: The OS of my dreams
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/base-main
+image-version: 38 # latest is also supported if you want new updates ASAP
+
+# list of modules, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - usr:
+          /usr # copy static configurations
+          # configuration you wish to end up in /etc/ on the booted system should be
+          # added into /usr/etc/ as that is the proper "distro" config directory on ostree
+          # read more in the files module's README
+
+  - type: script
+    scripts:
+      - xwayland.sh
+      - vscode.sh
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-%FEDORA_VERSION%/che-nerd-fonts-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-%FEDORA_VERSION%/erikreider-SwayNotificationCenter-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%FEDORA_VERSION%/solopasha-hyprland-fedora-%FEDORA_VERSION%.repo
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+    install:
+      - alacritty
+      - blueman
+      - brightnessctl
+      - fastfetch
+      - gnome-keyring
+      - gnome-settings-daemon
+      - google-noto-sans-fonts
+      - grim
+      - htop
+      - hyprland
+      - hyprpaper
+      - jetbrains-mono-fonts-all
+      - libadwaita
+      - neovim
+      - nerd-fonts
+      - network-manager-applet
+      - pavucontrol
+      - playerctl
+      - polkit-gnome
+      - powerline-fonts
+      - sddm
+      - slurp
+      - swappy
+      - SwayNotificationCenter
+      - tailscale
+      - thunar
+      - thunar-archive-plugin
+      - thunar-volman
+      - tlp
+      - tlp-rdw
+      - waybar
+      - wofi
+      - xdg-desktop-portal-hyprland
+      - zsh
+    remove:
+      - firefox # default firefox removed in favor of flatpak
+      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+
+  - type: bling # configure what to pull in from ublue-os/bling
+    install:
+      - fonts # selection of common good free fonts
+      - justfiles # add "!include /usr/share/ublue-os/just/bling.just"
+        # in your custom.just (added by default) or local justfile
+      - nix-installer # shell shortcuts for determinate system's nix installers
+      - ublue-os-wallpapers
+      # - ublue-update # https://github.com/ublue-os/ublue-update
+      # - dconf-update-service # a service unit that updates the dconf db on boot
+      # - devpod # https://devpod.sh/ as an rpm
+
+  - type:
+      yafti # if included, yafti and it's dependencies (pip & libadwaita)
+      #  will be installed and set up
+    custom-flatpaks: # this section is optional
+      - Discord: com.discordapp.Discord
+      - Flatseal: com.github.tchx84.Flatseal
+      - Google Chrome: com.google.Chrome
+      - OBS Studio: com.obsproject.Studio
+      - Obsidian: md.obsidian.Obsidian
+      - SyncThingy: com.github.zocker_160.SyncThingy
+
+  - type: script
+    scripts:
+      # this sets up the proper policy & signing files for signed images to work
+      - signing.sh
