@@ -1,7 +1,13 @@
-# :warning: Do not use this! :warning:
+# :milky_way: OneirOS
 
-This repo builds a custom image based on [Universal Blue](https://universal-blue.org/), which is itself based on [Fedora Silverblue](https://fedoraproject.org/silverblue/).
+**OneirOS** is a custom operating system, distributed as an OCI image, and powered by [Fedora Silverblue](https://fedoraproject.org/silverblue/) and the [Universal Blue](https://universal-blue.org/) project.
 
-It's experimental, is geared toward the author's personal preferences, and isn't meant to be used by others, but if there's any inspiration you can take from it, feel free!
+Image-based distros bring the advantages of cloud-native and DevOps tooling to the desktop -- like CI/CD, atomic deployments, easy rollbacks, and a clean separation between "system" and "state". See the links above for more detailed explanation!
 
-To learn more about this repo's structure, see [ublue-os/startingpoint](https://github.com/ublue-os/startingpoint).
+## Status: work in progress
+
+I run this on my Framework laptop and it's working well, but not all of the necessary config files you would need to make this usable are in this repo yet. Stay tuned!
+
+---
+
+![](photo.jpg)
