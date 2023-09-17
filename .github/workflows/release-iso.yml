@@ -1,9 +1,9 @@
 on:
-  # push:
-  #   paths:
-  #     - 'boot_menu.yml'
-  #     - '.github/workflows/release-iso.yml'
-  # workflow_dispatch:
+  push:
+    paths:
+      - 'boot_menu.yml'
+      - '.github/workflows/release-iso.yml'
+  workflow_dispatch:
 
 name: release-iso
 jobs:
