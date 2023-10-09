@@ -45,7 +45,7 @@ modules:
       - hyprpaper
       - jetbrains-mono-fonts-all
       - libadwaita
-      - mozilla-fira-fonts
+      - mozilla-fira-sans-fonts
       - neovim
       - nerd-fonts
       - network-manager-applet
