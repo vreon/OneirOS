@@ -44,5 +44,5 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
-    sed -i '/^PRETTY_NAME/s/Thirty Eight/OneirOS/' /usr/lib/os-release && \
+    sed -i '/^PRETTY_NAME/s/Thirty Nine/OneirOS/' /usr/lib/os-release && \
     rm -rf /tmp/* /var/* && ostree container commit
