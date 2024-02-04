@@ -1,4 +1,4 @@
-!include /usr/share/ublue-os/just/100-bling.just
+import '100-bling.just'
 
 # Add boot parameters needed for a Framework 13 laptop
 framework-13:
