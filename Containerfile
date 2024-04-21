@@ -7,7 +7,7 @@ ARG FEDORA_VERSION="39"
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${FEDORA_VERSION}
 
 RUN mkdir -p /var/lib/alternatives && \
-    ostree contaier commit
+    ostree container commit
 
 RUN wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts.repo && \
     wget https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-"${FEDORA_VERSION}"/erikreider-SwayNotificationCenter-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_erikreider-SwayNotificationCenter.repo && \
