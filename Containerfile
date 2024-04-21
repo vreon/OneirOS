@@ -1,45 +1,54 @@
-# This is the Containerfile for your custom image.
+# See also: https://github.com/ublue-os/image-template/blob/main/Containerfile
 
-# Instead of adding RUN statements here, you should consider creating a script
-# in `config/scripts/`. Read more in `modules/script/README.md`
+ARG SOURCE_IMAGE="base"
+ARG SOURCE_SUFFIX="-main"
+ARG FEDORA_VERSION="39"
 
-# This Containerfile takes in the recipe, version, and base image as arguments,
-# all of which are provided by build.yml when doing builds
-# in the cloud. The ARGs have default values, but changing those
-# does nothing if the image is built in the cloud.
+FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${FEDORA_VERSION}
 
-# !! Warning: changing these might not do anything for you. Read comment above.
-ARG IMAGE_MAJOR_VERSION=39
-ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
+RUN mkdir -p /var/lib/alternatives && \
+    ostree contaier commit
 
-FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
+RUN wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts.repo && \
+    wget https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-"${FEDORA_VERSION}"/erikreider-SwayNotificationCenter-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_erikreider-SwayNotificationCenter.repo && \
+    wget https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-"${FEDORA_VERSION}"/solopasha-hyprland-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_solopasha-hyprland.repo && \
+    wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo -O /etc/yum.repos.d/tailscale.repo && \
+    ostree container commit
 
-# The default recipe is set to the recipe's default filename
-# so that `podman build` should just work for most people.
-ARG RECIPE=recipe.yml 
-# The default image registry to write to policy.json and cosign.yaml
-ARG IMAGE_REGISTRY=ghcr.io/ublue-os
-
-COPY cosign.pub /usr/share/ublue-os/cosign.pub
-
-# Copy build scripts & configuration
-COPY build.sh /tmp/build.sh
-COPY config /tmp/config/
-
-# Copy modules
-# The default modules are inside ublue-os/bling
-COPY --from=ghcr.io/ublue-os/bling:latest /modules /tmp/modules/
-# Custom modules overwrite defaults
-COPY modules /tmp/modules/
-
-# `yq` is used for parsing the yaml configuration
-# It is copied from the official container image since it's not available as an RPM.
-COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
-
-# Change this if you want different version/tag of akmods.
-COPY --from=ghcr.io/ublue-os/akmods:main-39 /rpms /tmp/rpms
-
-# Run the build script, then clean up temp files and finalize container build.
-RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
-    sed -i '/^PRETTY_NAME/s/Thirty Nine/OneirOS/' /usr/lib/os-release && \
-    rm -rf /tmp/* /var/* && ostree container commit
+RUN rpm-ostree install \
+      alacritty \
+      blueman \
+      brightnessctl \
+      fastfetch \
+      gnome-keyring \
+      gnome-settings-daemon \
+      google-noto-sans-fonts \
+      grim \
+      htop \
+      hyprland \
+      hyprpaper \
+      jetbrains-mono-fonts-all \
+      libadwaita \
+      mozilla-fira-sans-fonts \
+      neovim \
+      nerd-fonts \
+      network-manager-applet \
+      pavucontrol \
+      playerctl \
+      polkit-gnome \
+      powerline-fonts \
+      sddm \
+      slurp \
+      swappy \
+      SwayNotificationCenter \
+      tailscale \
+      thunar \
+      thunar-archive-plugin \
+      thunar-volman \
+      tlp \
+      tlp-rdw \
+      waybar \
+      wofi \
+      xdg-desktop-portal-hyprland \
+      zsh && \
+    ostree container commit
