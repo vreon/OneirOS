@@ -16,7 +16,7 @@ RUN wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${F
     ostree container commit
 
 # Remove firefox package in favor of Flatpak
-RUN rpm-ostree remove \
+RUN rpm-ostree uninstall \
       firefox \
       firefox-langpacks && \
     ostree container commit
