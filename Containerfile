@@ -15,6 +15,12 @@ RUN wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${F
     wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo -O /etc/yum.repos.d/tailscale.repo && \
     ostree container commit
 
+# Remove firefox package in favor of Flatpak
+RUN rpm-ostree remove \
+      firefox \
+      firefox-langpacks && \
+    ostree container commit
+
 RUN rpm-ostree install \
       alacritty \
       blueman \
