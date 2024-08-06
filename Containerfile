@@ -58,5 +58,6 @@ RUN rpm-ostree install \
       waybar \
       wofi \
       xdg-desktop-portal-hyprland \
+      xwayland-run \
       zsh && \
     ostree container commit
