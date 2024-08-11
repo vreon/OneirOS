@@ -56,6 +56,7 @@ RUN rpm-ostree install \
       tlp \
       tlp-rdw \
       waybar \
+      waypaper \
       wofi \
       xdg-desktop-portal-hyprland \
       xwayland-run \
