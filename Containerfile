@@ -26,6 +26,7 @@ RUN rpm-ostree install \
       alacritty \
       blueman \
       brightnessctl \
+      clang-devel \
       fastfetch \
       gnome-keyring \
       gnome-settings-daemon \
@@ -58,6 +59,7 @@ RUN rpm-ostree install \
       waybar \
       waypaper \
       wofi \
+      xcb-util-cursor-devel \
       xdg-desktop-portal-hyprland \
       xwayland-run \
       zsh && \
