@@ -44,7 +44,7 @@ RUN rpm-ostree install \
       niri \
       pavucontrol \
       playerctl \
-      polkit-gnome \
+      polkit \
       powerline-fonts \
       sddm \
       slurp \
