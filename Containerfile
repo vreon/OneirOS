@@ -11,7 +11,6 @@ RUN mkdir -p /var/lib/alternatives && \
 
 RUN wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts.repo && \
     wget https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-"${FEDORA_VERSION}"/erikreider-SwayNotificationCenter-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_erikreider-SwayNotificationCenter.repo && \
-    wget https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-"${FEDORA_VERSION}"/solopasha-hyprland-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_solopasha-hyprland.repo && \
     wget https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-"${FEDORA_VERSION}"/yalter-niri-git-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_yalter-niri-git.repo && \
     wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo -O /etc/yum.repos.d/tailscale.repo && \
     ostree container commit
@@ -33,8 +32,6 @@ RUN rpm-ostree install \
       google-noto-sans-fonts \
       grim \
       htop \
-      hyprland \
-      hyprpaper \
       jetbrains-mono-fonts-all \
       libadwaita \
       mozilla-fira-sans-fonts \
@@ -49,6 +46,7 @@ RUN rpm-ostree install \
       sddm \
       slurp \
       swappy \
+      swaybg \
       SwayNotificationCenter \
       tailscale \
       thunar \
@@ -57,10 +55,9 @@ RUN rpm-ostree install \
       tlp \
       tlp-rdw \
       waybar \
-      waypaper \
       wofi \
       xcb-util-cursor-devel \
-      xdg-desktop-portal-hyprland \
+      xdg-desktop-portal-gtk \
       xwayland-run \
       zsh && \
     ostree container commit
