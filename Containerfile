@@ -35,6 +35,7 @@ RUN rpm-ostree install \
       jetbrains-mono-fonts-all \
       libadwaita \
       mozilla-fira-sans-fonts \
+      nautilus \
       neovim \
       nerd-fonts \
       network-manager-applet \
