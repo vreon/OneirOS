@@ -57,6 +57,7 @@ RUN rpm-ostree install \
       waybar \
       wofi \
       xcb-util-cursor-devel \
+      xdg-desktop-portal-gnome \
       xdg-desktop-portal-gtk \
       xwayland-run \
       zsh && \
