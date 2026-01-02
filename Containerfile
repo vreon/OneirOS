@@ -2,7 +2,7 @@
 
 ARG SOURCE_IMAGE="base"
 ARG SOURCE_SUFFIX="-main"
-ARG FEDORA_VERSION="42"
+ARG FEDORA_VERSION="43"
 
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${FEDORA_VERSION}
 
@@ -35,7 +35,6 @@ RUN rpm-ostree install \
       htop \
       jetbrains-mono-fonts-all \
       libadwaita \
-      mozilla-fira-sans-fonts \
       nautilus \
       neovim \
       nerd-fonts \
