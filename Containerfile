@@ -45,6 +45,7 @@ RUN rpm-ostree install \
       pavucontrol \
       playerctl \
       polkit \
+      polkit-kde \
       powerline-fonts \
       sddm \
       slurp \
