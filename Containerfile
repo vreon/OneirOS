@@ -28,6 +28,8 @@ RUN rpm-ostree install \
       brightnessctl \
       clang-devel \
       fastfetch \
+      fprintd \
+      fprintd-pam \
       gnome-keyring \
       gnome-settings-daemon \
       google-noto-sans-fonts \
