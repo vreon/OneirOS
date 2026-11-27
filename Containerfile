@@ -1,69 +1,19 @@
 # See also: https://github.com/ublue-os/image-template/blob/main/Containerfile
 
-ARG SOURCE_IMAGE="base"
-ARG SOURCE_SUFFIX="-main"
-ARG FEDORA_VERSION="43"
+# Allow build scripts to be referenced without being copied into the final image
+FROM scratch AS ctx
+COPY build_files /
+COPY system_files /system_files
 
-FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${FEDORA_VERSION}
+# Base image: https://github.com/orgs/ublue-os/packages
+# Tags: 45 (pinned major), latest (current Fedora), gts (previous Fedora)
+FROM ghcr.io/ublue-os/base-main:45
 
-RUN mkdir -p /var/lib/alternatives && \
-    ostree container commit
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/build.sh
 
-RUN wget https://copr.fedorainfracloud.org/coprs/che/nerd-fonts/repo/fedora-"${FEDORA_VERSION}"/che-nerd-fonts-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_che-nerd-fonts.repo && \
-    wget https://copr.fedorainfracloud.org/coprs/erikreider/SwayNotificationCenter/repo/fedora-"${FEDORA_VERSION}"/erikreider-SwayNotificationCenter-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_erikreider-SwayNotificationCenter.repo && \
-    wget https://copr.fedorainfracloud.org/coprs/yalter/niri-git/repo/fedora-"${FEDORA_VERSION}"/yalter-niri-git-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_yalter-niri-git.repo && \
-    wget https://copr.fedorainfracloud.org/coprs/ulysg/xwayland-satellite/repo/fedora-"${FEDORA_VERSION}"/ulysg-xwayland-satellite-fedora-"${FEDORA_VERSION}".repo -O /etc/yum.repos.d/_copr_ulysg-xwayland-satellite.repo && \
-    wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo -O /etc/yum.repos.d/tailscale.repo && \
-    ostree container commit
-
-# Remove firefox package in favor of Flatpak
-RUN rpm-ostree uninstall \
-      firefox \
-      firefox-langpacks && \
-    ostree container commit
-
-RUN rpm-ostree install \
-      alacritty \
-      blueman \
-      brightnessctl \
-      clang-devel \
-      fastfetch \
-      fprintd \
-      fprintd-pam \
-      gnome-keyring \
-      gnome-settings-daemon \
-      google-noto-sans-fonts \
-      grim \
-      htop \
-      jetbrains-mono-fonts-all \
-      libadwaita \
-      nautilus \
-      neovim \
-      nerd-fonts \
-      network-manager-applet \
-      niri \
-      pavucontrol \
-      playerctl \
-      polkit \
-      polkit-kde \
-      powerline-fonts \
-      sddm \
-      slurp \
-      swappy \
-      swaybg \
-      SwayNotificationCenter \
-      tailscale \
-      thunar \
-      thunar-archive-plugin \
-      thunar-volman \
-      tlp \
-      tlp-rdw \
-      waybar \
-      wofi \
-      xcb-util-cursor-devel \
-      xdg-desktop-portal-gnome \
-      xdg-desktop-portal-gtk \
-      xwayland-run \
-      xwayland-satellite \
-      zsh && \
-    ostree container commit
+# Verify final image and contents are correct
+RUN bootc container lint
